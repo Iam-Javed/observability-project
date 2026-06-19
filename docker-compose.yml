@@ -1,8 +1,10 @@
 services:
 
-  app:
+  flask-app:
     build: ./app
     container_name: flask-app
+    volumes:
+      - ./logs:/logs
     ports:
       - "5000:5000"
 
@@ -15,6 +17,25 @@ services:
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
 
+  loki:
+    image: grafana/loki:latest
+    container_name: loki
+    command: -config.file=/etc/loki/local-config.yaml
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./loki/local-config.yaml:/etc/loki/local-config.yaml
+  
+  promtail:
+    image: grafana/promtail:latest
+    container_name: promtail
+
+    command: -config.file=/etc/promtail/config.yml
+
+    volumes:
+      - ./promtail/config.yml:/etc/promtail/config.yml
+      - ./logs:/logs
+
   grafana:
     image: grafana/grafana
     container_name: grafana
@@ -22,30 +43,9 @@ services:
     ports:
       - "3000:3000"
 
-  loki:
-    image: grafana/loki
-    container_name: loki
-
-    ports:
-      - "3100:3100"
-
-    volumes:
-      - ./loki/local-config.yaml:/etc/loki/local-config.yaml
-
-    command: -config.file=/etc/loki/local-config.yaml
-
-  promtail:
-
-    image: grafana/promtail
-
-    volumes:
-      - ./promtail/config.yml:/etc/promtail/config.yml
-      - /var/lib/docker/containers:/var/lib/docker/containers:ro
-
-    command: -config.file=/etc/promtail/config.yml
-
   jaeger:
     image: jaegertracing/all-in-one
+    container_name: jaeger
 
     ports:
       - "16686:16686"
