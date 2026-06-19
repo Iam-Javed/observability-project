@@ -17,11 +17,11 @@ A complete observability stack built using Docker Compose that provides centrali
 
 <img width="1356" height="629" alt="image" src="https://github.com/user-attachments/assets/7ddf5310-edcb-40fa-bc03-6ffdefe7fe61" />
 
+<img width="1344" height="635" alt="image" src="https://github.com/user-attachments/assets/acb55bff-7d6d-4af0-8db8-8f7ffa3f8c80" />
+
 <img width="1361" height="631" alt="image" src="https://github.com/user-attachments/assets/b78a53e1-23bc-4630-904b-ecbcd45c5b23" />
 
 <img width="1347" height="633" alt="image" src="https://github.com/user-attachments/assets/a093c8bb-b024-48c3-b2ca-d380d07cdeaf" />
-
-<img width="1344" height="635" alt="image" src="https://github.com/user-attachments/assets/acb55bff-7d6d-4af0-8db8-8f7ffa3f8c80" />
 
 <img width="1050" height="592" alt="image" src="https://github.com/user-attachments/assets/00e51558-c188-4acb-b777-28a031dd9365" />
 
